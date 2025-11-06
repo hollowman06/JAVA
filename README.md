@@ -1,9 +1,26 @@
 # JAVA
-## 11월5일
+## 11월 6일
 
 ## 패키지 개념과 필요성
 - 여러명이 분담해 작업할 경우 동명의 클래스가 존재할 수 있음(오류가능성 존재)
 - 개발자가 서로 다른 디렉터리 코드로 관리하면 해결
+
+## 자바의 패키지와 모듈이란?
+* 패키지
+  * 서로 관련된 클래스와 인터페이스를 컴파일한 클래스를 묶어놓은 디렉토리
+  * 하나의 응용프로그램은 한개 이상의 패키지로 작성
+  * 패키지는 jar 파일로 압축 가능
+* 모듈
+  * 여러 패키지와 이미지 등의 자원을 모아놓은 컨테이너
+  * 하나의 모듈을 하나의 .jmod파일에 저장
+* JAVA 9부터 모듈화 도임
+  * 플랫폼의 모듈화: JAVA 9부터 자바API의 모든 클래스들을 패키지기반에서 모듈들로 완전히 재구성함
+  * 응용프로그램의 모듈화: 클래스들은 패키지로 만들고 다시 패키지 모듈로 만듦
+* 모듈화의 목적
+  * Java 9부터 자바API를 99개 모듈로 분할: Java 8까지는 rt.jar의 한 파일에 모는 API저장 (현재는 70개)
+* 자바 JDK에 제공되는 모듈 파일(jmod확장자 모든파일 모듈은 ZIP파일)
+
+![tech](https://private-user-images.githubusercontent.com/200943901/510788032-e8ce840f-f103-42b9-8c2d-42b3509cea78.jpg?jwt=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbSIsImtleSI6ImtleTUiLCJleHAiOjE3NjI0MzY0MjcsIm5iZiI6MTc2MjQzNjEyNywicGF0aCI6Ii8yMDA5NDM5MDEvNTEwNzg4MDMyLWU4Y2U4NDBmLWYxMDMtNDJiOS04YzJkLTQyYjM1MDljZWE3OC5qcGc_WC1BbXotQWxnb3JpdGhtPUFXUzQtSE1BQy1TSEEyNTYmWC1BbXotQ3JlZGVudGlhbD1BS0lBVkNPRFlMU0E1M1BRSzRaQSUyRjIwMjUxMTA2JTJGdXMtZWFzdC0xJTJGczMlMkZhd3M0X3JlcXVlc3QmWC1BbXotRGF0ZT0yMDI1MTEwNlQxMzM1MjdaJlgtQW16LUV4cGlyZXM9MzAwJlgtQW16LVNpZ25hdHVyZT1hMjMzZDdmN2U2MDEyN2E5MDNhZmM0NmNjYTE2NTA2ZWFmYzc3MDA5OTE2OWIyZjMwZTcxMmMwOTAwNjU3ZTQwJlgtQW16LVNpZ25lZEhlYWRlcnM9aG9zdCJ9.2MMrsJsg_tRAWWHX4ceOKao8R8oFUQXAPvjnKDdcUNc)
 
 ## 10월 31일
 
