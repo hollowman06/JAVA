@@ -2,23 +2,138 @@
 ## 11월 6일
 
 ## 패키지 개념과 필요성
-- 여러명이 분담해 작업할 경우 동명의 클래스가 존재할 수 있음(오류가능성 존재)
-- 개발자가 서로 다른 디렉터리 코드로 관리하면 해결
+* 3명이 분담하여 자바 응용프로그램을 개발하는 경우, 동일한 이름의 클래스가 존재할 가능성 있음
 
-## 자바의 패키지와 모듈이란?
-* 패키지
-  * 서로 관련된 클래스와 인터페이스를 컴파일한 클래스를 묶어놓은 디렉토리
-  * 하나의 응용프로그램은 한개 이상의 패키지로 작성
-  * 패키지는 jar 파일로 압축 가능
-* 모듈
-  * 여러 패키지와 이미지 등의 자원을 모아놓은 컨테이너
-  * 하나의 모듈을 하나의 .jmod파일에 저장
-* JAVA 9부터 모듈화 도임
-  * 플랫폼의 모듈화: JAVA 9부터 자바API의 모든 클래스들을 패키지기반에서 모듈들로 완전히 재구성함
-  * 응용프로그램의 모듈화: 클래스들은 패키지로 만들고 다시 패키지 모듈로 만듦
-* 모듈화의 목적
-  * Java 9부터 자바API를 99개 모듈로 분할: Java 8까지는 rt.jar의 한 파일에 모는 API저장 (현재는 70개)
-* 자바 JDK에 제공되는 모듈 파일(jmod확장자 모든파일 모듈은 ZIP파일)
+-> 합칠 때 오류 발생 가능성
+
+-> 개발자가 서로 다른 디렉터리로 코드 관리하여 해결
+
+## 자바 패키지와 모듈이란?
+* **패키지(package)**
+
+  -서로 관련된 클래스와 인터페이스를 컴파일한 클래스 파일들으 묶어 놓은 디렉터리
+
+  -하나의 응용프로그램은 한 개 이상의 패키지로 작성
+
+  -패키지는 jar 파일로 압축할 수 있음
+
+
+* **모듈(module)**
+
+  -여러 패키지와 이미지 등의 자원을 모아 놓은 컨테이너
+
+  -하나의 모듈을 하나의 .jmod 파일에 저장
+
+
+* **java 9부터 모듈화 도입**
+
+  -플랫폼의 모듈화 : java 9부터 자바 API의 모든 클래스들(자바 실행 환경)을 패키지 기반에서 모듈들로 완전히 재구성
+
+  -응용프로그램의 모듈화 : 클래스들은 패키지로 만들고, 다시 패키지를 모듈로 만듦
+
+## 패키지 만들기
+* **클래스 파이(.class)이 저장되는 위치는?**
+
+  -클래스나 인터페이스가 컴파일 되면 클래스 파일 생성
+
+  -클래스 파일은 패키지로 선언된 디렉터리에 저장
+
+
+* **패키지 선언**
+
+  -소스 파일의 맨 앞에 컴파일 후 저장될 패키지 지정 -> package 패키지명;
+
+
+
+## 자바 API의 모듈 파일들
+
+
+* **자바가 설치된 jmods 디렉터리에 모듈 파일 존재**
+    * .jmod 확장자를 가진 파일
+      모듈은 수십 개 존재하며, ZIP 포맷으로 압축된 파일
+      → 포맷이 zip이며, 확장자는 .jmod 입니다.
+
+* **모듈 파일에는 자바 API의 패키지와 클래스들이 들어 있음**
+
+* **jmod 명령을 이용하여 모듈 파일에 들어 있는 패키지를 풀어낼 수 있음**
+
+
+## 패키지 사용하기, import문
+
+### **다른 패키지에 작성된 클래스 사용**
+
+-import를 이용하지 않는 경우
+
+     -> 소스에 클래스 이름의 완전 경로면 사용
+* **필요한 클래스만 import**
+
+  -소스 시작 부분에 클래스의 경로명 import
+
+  -import 패키지.클래스
+
+  -소스에는 클래스 명만 명시하면 됨
+
+* **패키지 전체를 import**
+
+  -소스 시작 부분에 패키지의 경로명. *import
+
+  -import 패키지
+
+  -소스에는 클래스 명만 명시하면 됨
+
+  -import java.util.*;
+
+  ->java.util 패키지 내의 모든 클래스만을 지정, 하위 패키지의 클래스는 포함X
+
+## VS Code에서 Java Package 생성하기
+* **Elipse 보다도 간단히 만들 수 있음**
+
+
+* **교재의 예제에서는 app과 lib package를 만들었지만,
+  일반적으로 package는 com.foo.test와 같이 도메인의 역순으로 만드는 것이 일반적**
+
+
+## JDK의 주요 패키지
+* **java.lang**
+
+  -스트링, 수학 함수, 입출력 등 자바 프로그래밍에 필요한 기본적인 클래스와 인터페이스
+
+  -자동으로 import 됨
+* **java.util**
+
+  -날짜, 시간, 백터, 헤시맵 등과 같은 다양한 유틸리티 클래스와 인터페이스 제공
+
+* **java.io**
+
+  -키보드, 모니터, 프린터, 디스크 등에 입출력을 할 수 있는 클래스와 인터페이스 제공
+
+* **java.awt**
+
+  -GUI 크로그램을 작성하기 위함 AWT 패키지
+
+* **javax.swing**
+
+  -GUI 프로그래밍을 작성하기 위한 스윙 패키지
+
+## 객체 속성
+* **object 크래스는 객체의 속성을 나타내는 메소드 제공**
+
+
+* **hashCode() 메소드**
+
+  -객체의 해시코드 값을 리턴하며, 객체마다 다름
+
+
+* **getClass() 메소드**
+
+  -객체의 클래스 정보를 담은 Class 객체 리턴
+
+  -Class 객체의 getName() 메소드는 객체의 클래스 이름 리턴
+
+
+* toString() 메소드
+
+  -객체를 문자열로 리턴
 
 ![tech](https://private-user-images.githubusercontent.com/200943901/510788032-e8ce840f-f103-42b9-8c2d-42b3509cea78.jpg?jwt=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbSIsImtleSI6ImtleTUiLCJleHAiOjE3NjI0MzY0MjcsIm5iZiI6MTc2MjQzNjEyNywicGF0aCI6Ii8yMDA5NDM5MDEvNTEwNzg4MDMyLWU4Y2U4NDBmLWYxMDMtNDJiOS04YzJkLTQyYjM1MDljZWE3OC5qcGc_WC1BbXotQWxnb3JpdGhtPUFXUzQtSE1BQy1TSEEyNTYmWC1BbXotQ3JlZGVudGlhbD1BS0lBVkNPRFlMU0E1M1BRSzRaQSUyRjIwMjUxMTA2JTJGdXMtZWFzdC0xJTJGczMlMkZhd3M0X3JlcXVlc3QmWC1BbXotRGF0ZT0yMDI1MTEwNlQxMzM1MjdaJlgtQW16LUV4cGlyZXM9MzAwJlgtQW16LVNpZ25hdHVyZT1hMjMzZDdmN2U2MDEyN2E5MDNhZmM0NmNjYTE2NTA2ZWFmYzc3MDA5OTE2OWIyZjMwZTcxMmMwOTAwNjU3ZTQwJlgtQW16LVNpZ25lZEhlYWRlcnM9aG9zdCJ9.2MMrsJsg_tRAWWHX4ceOKao8R8oFUQXAPvjnKDdcUNc)
 
